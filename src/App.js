@@ -66,6 +66,7 @@ function App() {
     setWordsLeft(solution.length);
     setTextFieldState(true);
     setAlreadyFound(null);
+    setScore(0);
   }
 
   function recieveInput(value){
