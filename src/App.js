@@ -21,6 +21,7 @@ function App() {
   const [alreadyFound, setAlreadyFound] = useState(null);
   const [textFieldState, setTextFieldState] = useState(true);
   const [wordsLeft, setWordsLeft] = useState(0);
+  const [score, setScore] = useState(0);
 
   const listClasses = listUseStyles();
   let i = 0;
@@ -74,6 +75,7 @@ function App() {
       }else{
         setWordsFound(new Set([...wordsFound, value]));
         setWordsLeft(wordsLeft-1);
+        setScore(score+value.length);
       }
     }
   }
@@ -105,10 +107,7 @@ function App() {
           ('Play!')
         }
         </button>
-        {isVisible && <button onClick={endGame}>
-          End Game
-        </button>}
-        {isVisible && <h6>Words remaining: {wordsLeft}</h6>}
+        {isVisible && <h6>Words remaining: {wordsLeft} <br /> Score: {score}</h6>}
         {isVisible && boggleSolution && <List className={listClasses.root}>
         {[0].map(sectionId =>
           <li className={listClasses.listSection}>
