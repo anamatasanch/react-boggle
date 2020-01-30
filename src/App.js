@@ -107,7 +107,8 @@ function App() {
           ('Play!')
         }
         </button>
-        {isVisible && <h6>Words remaining: {wordsLeft} <br /> Score: {score}</h6>}
+        {isVisible && <h6>Words remaining: {wordsLeft}
+                      <br /> Score: {score}</h6>}
         {isVisible && boggleSolution && <List className={listClasses.root}>
         {[0].map(sectionId =>
           <li className={listClasses.listSection}>
