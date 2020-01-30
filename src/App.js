@@ -70,10 +70,10 @@ function App() {
 
   function recieveInput(value){
     if(boggleSolution.has(value.toUpperCase())){
-      if(wordsFound.has(value)){
+      if(wordsFound.has(value.toUpperCase())){
         setAlreadyFound(value);
       }else{
-        setWordsFound(new Set([...wordsFound, value]));
+        setWordsFound(new Set([...wordsFound, value.toUpperCase()]));
         setWordsLeft(wordsLeft-1);
         setScore(score+value.length);
       }
@@ -93,7 +93,7 @@ function App() {
         {setTextFieldState && isVisible && <ReactTimer interval={800} start={50} end={t => t === 0} onTick={t => t - 1} onEnd={tickevent => endGame()}>
         {time => <h5>Time left: {time}</h5>}
         </ReactTimer>}
-        {alreadyFound && <p>"You already found {alreadyFound}!"</p>}
+        {alreadyFound && <p>"You already found {alreadyFound.toUpperCase()}!"</p>}
         <Container maxWidth="md">
         {boggleboard && isVisible && <NestedGrid grid={boggleboard}/>}
         </Container>
